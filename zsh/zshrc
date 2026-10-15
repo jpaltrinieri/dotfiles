@@ -1,0 +1,11 @@
+# Main zsh config, shared across machines
+export DOTFILES="$HOME/dotfiles"
+
+# Load every topic file in order (N = no error if the folder is empty)
+for f in "$DOTFILES"/zsh/conf.d/*.zsh(N); do
+  source "$f"
+done
+unset f
+
+# Machine-specific settings, not tracked in git
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
